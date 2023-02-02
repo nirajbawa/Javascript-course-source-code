@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake Water Gun</title>
+
+    <style>
+        body{
+            background-color: #040404;
+            color: white;
+        }
+
+        h1:first-child {
+            color: rgb(239, 240, 244);
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>exercise-2</h1>
+
+    <script>
+
+      
+
+        while(true)
+        {
+            let cpinput = Math.floor(Math.random() * 3) + 1;
+            let uinput = Number.parseInt(prompt("enter 1)snake, 2)water, 3)gun 4)exit : "));
+
+            if(uinput == 1)
+            {
+                if(cpinput==2)
+                {
+                    alert("user (snake vs water = snake) win");
+                }
+                else if(cpinput==3)
+                {
+                    alert("computer (snake vs gun = gun) win");
+                }
+                else{
+                    alert("match tie");
+                }
+            }
+            else if(uinput == 2)
+            {
+                if(cpinput==1)
+                {
+                    alert("computer (water vs snake = snake) win");
+                }
+                else if(cpinput==3)
+                {
+                    alert("user (water vs gun = water) win");
+                }
+                else{
+                    alert("match tie");
+                }
+            }
+            else if(uinput==3)
+            {
+                if(cpinput==1)
+                {
+                    alert("user (gun vs snake = snake) win");
+                }
+                else if(cpinput==2)
+                {
+                    alert("computer (gun vs water = water) win");
+                }
+                else{
+                    alert("match tie");
+                }
+            }
+            else if(uinput==4)
+            {
+                break;
+            }
+            else{
+                alert("invalid option");
+            }
+            
+        }
+        
+
+        
+
+    </script>
+
+</body>
+
+</html>

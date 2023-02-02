@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Changing-HTML-Classes-using-JavaScript</title>
+
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        h1:first-child {
+            text-align: center;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>5-Changing-HTML-Classes-using-JavaScript</h1>
+
+    <div id="d1" class="div1">
+        <p>this 1st paparagraph</p>
+        <p>this 2nd paparagraph</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+
+        let a = document.getElementById("d1");
+
+        console.log(a.className);
+        a.className = "hii";
+        console.log(a.className);
+
+        a.classList.remove("hii");
+
+        console.log(a.className);
+
+        console.log(a.classList);
+
+        a.classList.add("hii1");
+        a.classList.add("hello2");
+
+
+        console.log(a.classList);
+
+
+        a.classList.replace("hello2", "no");
+
+        console.log(a.classList);
+
+        a.classList.toggle("niraj");
+
+        console.log("if class toggle not exits add it ", a.classList); // if class toggle not exits add it
+
+        a.classList.toggle("niraj");
+
+        console.log("if class toggle exits remove it ", a.classList); //if class toggle exits remove it
+
+        console.log(a.classList.contains("niraj")); //if class toggle exits remove it
+
+        console.log(a.classList);
+
+    </script>
+    
+   
+
+</body>
+
+</html>

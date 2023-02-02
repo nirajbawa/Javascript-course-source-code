@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>6-JavaScript-Chapter-6-Practice-Set</title>
+
+    <style>
+        body{
+            background-color: #040404;
+            color: white;
+        }
+
+        h1:first-child {
+            color: rgb(239, 240, 244);
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <h1>6-JavaScript-Chapter-6-Practice-Set</h1>
+
+    <script>
+
+        //Q1)
+
+        function promt()
+        {
+            let age = Number.parseInt(prompt("enter age : "))
+
+
+            //Q3)
+
+            if(age<0)
+            {
+                console.error("age is negative");
+            }
+
+
+            if (age >= 18)
+                document.write("<br>you are able to drive");
+            else
+                document.write("<br>your are not able to drive");
+        }
+
+    
+        //Q2
+
+        
+        promt();
+
+        while(true)
+        {
+            let confirmuser = confirm("you want to see prompt again");
+            if(confirmuser)
+            {
+                promt();
+            }
+            else{
+                break;
+            }
+        }
+
+
+        // Q4
+
+        let input = prompt("enter number : ");
+
+        if(input>4)
+        {
+            location.href = "https://www.google.com/";
+        }
+
+        //
+
+        let color = prompt("enter color to change : ");
+
+        document.body.style.backgroundColor = color;
+        
+       
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5-Searching-the-DOM</title>
+
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            height: 100vh;
+            width: 100%;
+            padding: 3rem 10rem 4rem 10rem;
+            align-items: center;
+            display: flex;
+            flex-direction: column;
+            row-gap: 5rem;
+        }
+
+        
+
+        h1:first-child {
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+    <h1>5-Searching-the-DOM</h1>
+
+    <div class="container d-flex justify-content-evenly gap-5">
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://thumbs.dreamstime.com/z/tree-sunrise-over-mountain-tree-sunrise-over-mountain-nature-125507675.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title" id="ctitle">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card'scontent.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+                <input type="text" name="cardinput" value="">
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://thumbs.dreamstime.com/z/tree-sunrise-over-mountain-tree-sunrise-over-mountain-nature-125507675.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+        <div class="card" style="width: 18rem;">
+            <img src="https://thumbs.dreamstime.com/z/tree-sunrise-over-mountain-tree-sunrise-over-mountain-nature-125507675.jpg" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">Card title</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+                    content.</p>
+                <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+
+        // get element using id
+
+        let gettitleuid = document.getElementById("ctitle");
+        gettitleuid.style.color = "red";
+        console.log(gettitleuid);
+
+        // get element using class
+
+        let gettitlesbyclassN = document.getElementsByClassName("card-title")[0];
+        console.log(gettitlesbyclassN);
+
+
+        //get elements by tag name
+
+        let getaincard = document.getElementsByClassName("card")[0].getElementsByTagName("a");
+
+        console.log("elements by tag name : ", getaincard)
+
+
+        //get element by name
+
+        let gettitlesbyname = document.getElementsByName("cardinput");
+        console.log("elements by input name",gettitlesbyname);
+
+
+        //get all element using queryselectorall
+
+        let gettitlesbyquerysA = document.querySelectorAll(".card-title");
+
+        gettitlesbyquerysA[0].style.color = "red";
+        gettitlesbyquerysA[1].style.color = "green";
+        gettitlesbyquerysA[2].style.color = "blue";
+        
+        console.log(gettitlesbyquerysA);
+        
+
+        //get only first element using queryselectorall
+
+        let gettitlesbyquerys = document.querySelector(".card-title");
+
+        gettitlesbyquerys.style.color = "black";
+        gettitlesbyquerys.style.backgroundColor = "skyblue";
+
+        console.log(gettitlesbyquerys);
+
+    </script>
+
+   
+
+</body>
+
+</html>

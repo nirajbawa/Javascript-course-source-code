@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Nunito+Sans:wght@600;900&display=swap"
+        rel="stylesheet">
+
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .maindiv {
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(11, 12, 12, 0.926);
+        }
+
+        .maindiv div {
+            height: 37rem;
+            background-color: rgb(0, 0, 0);
+            width: 22rem;
+            border-radius: 1rem;
+        }
+
+        .maindiv div nav {
+            background-color: rgb(24, 124, 234);
+            ;
+            color: white;
+            width: 100%;
+            height: 4rem;
+            font-size: 18px;
+            text-align: center;
+            text-transform: uppercase;
+            font-weight: 900;
+            font-family: 'Nunito Sans', sans-serif;
+            letter-spacing: 2px;
+            border-radius: 1rem 1rem 0rem 0rem;
+        }
+
+        .maindiv div div {
+            width: 100%;
+            height: 100%;
+            background-color: rgb(251, 252, 251);
+            border-radius: 0rem 0rem 1rem 1rem;
+            padding: 2rem 1rem;
+            overflow-y: scroll;
+        }
+
+
+        .maindiv div div button {
+            position: fixed;
+            border-radius: 50%;
+            background: transparent;
+            border: none;
+            top: 534px;
+            right: 200px;
+        }
+
+        #notecard {
+            width: 100%;
+            height: 5rem;
+            background-color: #ffeaea;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            padding: 0rem 1rem;
+            text-align: center;
+            border-radius: 0px;
+            overflow: hidden;
+            gap: 3rem;
+            border-radius: 1rem;
+            margin: 1rem 0rem;
+        }
+
+        #notecard p:first-child {
+            margin: 0px;
+            width: 20rem;
+            text-align: left;
+            padding: 0% 2%;
+            text-transform: capitalize;
+        }
+
+        #notecard p:last-child {
+            margin: 0px;
+        }
+
+        .maindiv div div::-webkit-scrollbar {
+            width: 0 !important
+        }
+
+        .maindiv div div {
+            overflow: -moz-scrollbars-none;
+        }
+
+        #closebtn {
+            margin: 0;
+            padding: 2px;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        @media (width>=1500px) {
+            .maindiv div div button {
+                top: 74%;
+                right: 41%;
+            }
+        }
+
+        @media (width<1500px) {
+            .maindiv div div button {
+                top: 72%;
+                right: 39%;
+            }
+        }
+
+        @media (width<1050px) {
+            .maindiv div div button {
+                top: 72%;
+                right: 34%;
+            }
+        }
+
+        @media (width<900px) {
+            .maindiv div div button {
+                top: 72%;
+                right: 27%;
+
+            }
+        }
+
+        @media (width<700px) {
+            .maindiv div div button {
+                top: 72%;
+                right: 22%;
+
+            }
+        }
+
+        @media (width<500px) {
+            .maindiv div div button {
+                top: 72%;
+                right: 8%;
+            }
+        }
+
+        @media (width<=450px) {
+            .maindiv div div button {
+                top: 78%;
+                right: 3%;
+            }
+
+            .maindiv div {
+                height: 100%;
+                width: 100%;
+            }
+
+
+            .maindiv div nav {
+                border-radius: 0px;
+            }
+
+            .maindiv div div {
+                border-radius: 0px;
+            }
+
+        }
+
+        @media only screen and (max-width:400px) {
+            .maindiv div div button {
+                top: 74%;
+                right: 3%;
+            }
+
+            .maindiv div {
+                height: 100%;
+                width: 100%;
+            }
+
+            .maindiv div nav {
+                border-radius: 0px;
+            }
+
+            .maindiv div div {
+                border-radius: 0px;
+            }
+
+        }
+    </style>
+
+
+
+
+    <style>
+        .tox {
+            width: 330px;
+            width: 100%;
+        }
+
+        .tox-editor-header div:nth-child(2) {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tox-toolbar-overlord {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tox-toolbar-overlord div:first-child div:nth-child(2) button:last-child {
+            display: flex;
+            flex-direction: column;
+        }
+
+
+
+        .tox-editor-header div button {
+            display: none !important;
+        }
+
+        .tox-notification {
+            display: none !important;
+        }
+
+        .tox-statusbar {
+            display: none !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <h1>6-JavaScript-Chapter-10-Practice-Set</h1> -->
+
+
+    <div class="maindiv d-flex justify-content-center align-items-center">
+        <div class="d-flex justify-content-start  flex-column">
+            <nav class="d-flex justify-content-center align-items-center">
+                notes
+            </nav>
+            <div id="Nodelist">
+
+                <!-- <div id="notecard">
+                    <p>this note hello this is note</p>
+                    <p>
+                        <script
+                            src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_VmD8Sl.json"
+                            background="transparent" speed="1" style="width: 70px; height: 70px;" loop
+                            autoplay></lottie-player>
+                    </p>
+                </div> -->
+
+                <!-- <div id="noteeditor">
+
+
+                    
+
+                    <textarea id="editor">
+              
+                    </textarea>
+
+
+                    <button id="sbtn">
+                        <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                        <lottie-player src="https://assets5.lottiefiles.com/temp/lf20_5tgmik.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"    autoplay></lottie-player>
+                    </button> 
+                   
+
+                </div> -->
+
+                <button id="cbtn">
+                    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+                    <lottie-player src="https://assets1.lottiefiles.com/packages/lf20_XyWejw.json"
+                        background="transparent" speed="0.5" style="width: 100px; height: 100px;" hover
+                        autoplay></lottie-player>
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+
+    <script>
+
+        
+
+        let Notelist = document.getElementById("Nodelist");
+        console.debug(Notelist);
+
+        let createBtn = document.querySelector("#cbtn");
+
+        let flag = 0;
+
+
+        console.debug(createBtn);
+
+        let openNote = (id) => {
+            let data = localStorage.getItem(id);
+            editNote(JSON.parse(data), id);
+        }
+
+        let editNote = async (data, id) => {
+
+            let hscript = await document.createElement("script");
+            hscript.src = await "https://cdn.tiny.cloud/1/6c3kc8p1qykvdi50ejxdfc3wumovnvyf2ttrhzz2gdvdmj00/tinymce/6/tinymce.min.js";
+            hscript.setAttribute("referrerpolicy", "origin");
+
+            document.head.appendChild(hscript);
+
+
+            hscript.onload = () => {
+
+                Notelist.innerHTML = "";
+                Notelist.insertAdjacentHTML('afterbegin', `<div id="noteeditor">
+                <p id="closebtn"></p>
+                <textarea id="editor">
+                    ${data.Nbody}
+                </textarea>
+                <button id="sbtn">
+                    
+                </button> 
+            </div>`);
+
+                let sbtn = document.getElementById("sbtn");
+                let script = document.createElement("script");
+                script.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+                sbtn.appendChild(script);
+                sbtn.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets5.lottiefiles.com/temp/lf20_5tgmik.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"    autoplay></lottie-player>');
+
+
+                let cbtn = document.getElementById("closebtn");
+                let cscript = document.createElement("script");
+                cscript.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+                closebtn.appendChild(cscript);
+                closebtn.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_GhKb4jSDA1.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;"    autoplay></lottie-player>');
+
+                cbtn.addEventListener('click', () => {
+                    Notelist.innerHTML = "";
+                    fetchNotes();
+                    setSavebtn();
+                });
+
+                tinymce.init({
+                    selector: '#editor',
+                    plugins: 'powerpaste casechange searchreplace autolink directionality advcode visualblocks visualchars image link media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker editimage help formatpainter permanentpen charmap linkchecker emoticons advtable export autosave inlinecss',
+                    toolbar: 'bold italic underline forecolor backcolor',
+                });
+
+
+
+
+                sbtn.addEventListener('click', () => {
+
+                    //saving notes in local storage 
+
+                    let Textbodye = document.getElementById('editor_ifr').contentWindow.document.body.innerHTML
+                    let titles = Textbodye.search("</h1>");
+                    let title = Textbodye.slice(0, titles + 5);
+                    let titleinbs = title.search(">");
+                    let titleinbe = title.search("</");
+                    let titlemiantext = title.slice(titleinbs + 1, titleinbe);
+                    console.debug(titlemiantext);
+
+                    let objdata = {
+                        Ntitle: titlemiantext,
+                        Nbody: Textbodye
+                    }
+
+                    saveEditednote(objdata, id);
+
+                })
+
+            }
+
+        }
+
+
+        let setNote = (value, id) => {
+            let NoteBody = document.createElement("div");
+            NoteBody.id = "notecard";
+            let noteP1 = document.createElement("p");
+            noteP1.onclick = () => {
+                openNote(id);
+            }
+            noteP1.innerText = value.Ntitle + "......";
+            let noteP2 = document.createElement("p");
+            noteP2.onclick = () => {
+                deleteNote(id);
+            }
+            let script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js";
+            noteP2.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_VmD8Sl.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"  loop  autoplay></lottie-player>');
+            noteP2.appendChild(script);
+            NoteBody.appendChild(noteP1);
+            NoteBody.appendChild(noteP2);
+            Notelist.prepend(NoteBody);
+        }
+
+
+        let setSavebtn = async () => {
+            let savebtn = document.createElement("button");
+            savebtn.id = "cbtn";
+            let script = document.createElement("script");
+            script.src = await "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+            savebtn.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_XyWejw.json" background="transparent" speed="0.5" style="width: 100px; height: 100px;" hover autoplay></lottie-player>');
+            Notelist.appendChild(savebtn);
+
+            savebtn.addEventListener('click', () => {
+                addNote();
+            })
+        }
+
+
+        let fetchNotes = () => {
+            if (document.cookie) {
+                let id = document.cookie;
+                let pid = Number.parseInt(id.slice(3));
+                console.debug(pid);
+
+
+                if (localStorage.length - 2 == 0 || localStorage.length == 0) {
+                    console.log("nothing");
+                    noteEmpty();
+                }
+                else {
+                    for (let i = 1; i < pid; i++) {
+                        try {
+                            let noteData = localStorage.getItem(i);
+                            console.info(noteData);
+                            setNote(JSON.parse(noteData), i);
+                        }
+                        catch (e) {
+    
+                        }
+    
+                    }
+    
+                }
+
+
+              
+
+            }
+            else {
+                document.cookie = "id=0";
+
+            }
+        }
+
+
+        let addNote = async () => {
+            Notelist.innerHTML = "";
+
+            let hscript = document.createElement("script");
+            hscript.src = await "https://cdn.tiny.cloud/1/6c3kc8p1qykvdi50ejxdfc3wumovnvyf2ttrhzz2gdvdmj00/tinymce/6/tinymce.min.js";
+
+            hscript.setAttribute("referrerpolicy", "origin");
+
+            document.head.appendChild(hscript);
+
+
+            hscript.onload = () => {
+                Notelist.insertAdjacentHTML('afterbegin', `<div id="noteeditor">
+                <p id="closebtn"></p>
+                <textarea id="editor">
+                    <h1 style="text-align : center"> title </h1>
+                </textarea>
+                <button id="sbtn">
+                    
+                </button> 
+            </div>`);
+
+                let sbtn = document.getElementById("sbtn");
+                let script = document.createElement("script");
+                script.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+                sbtn.appendChild(script);
+                sbtn.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets5.lottiefiles.com/temp/lf20_5tgmik.json"  background="transparent"  speed="1"  style="width: 70px; height: 70px;"    autoplay></lottie-player>');
+
+
+                let cbtn = document.getElementById("closebtn");
+                let cscript = document.createElement("script");
+                cscript.src = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+                closebtn.appendChild(cscript);
+                closebtn.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets1.lottiefiles.com/packages/lf20_GhKb4jSDA1.json"  background="transparent"  speed="1"  style="width: 40px; height: 40px;"    autoplay></lottie-player>');
+
+                cbtn.addEventListener('click', () => {
+                    Notelist.innerHTML = "";
+                    fetchNotes();
+                    setSavebtn();
+                });
+
+
+                tinymce.init({
+                    selector: '#editor',
+                    plugins: 'powerpaste casechange searchreplace autolink directionality advcode visualblocks visualchars image link media mediaembed codesample table charmap pagebreak nonbreaking anchor tableofcontents insertdatetime advlist lists checklist wordcount tinymcespellchecker editimage help formatpainter permanentpen charmap linkchecker emoticons advtable export autosave inlinecss',
+                    toolbar: 'bold italic underline forecolor backcolor',
+                });
+
+
+
+
+
+
+
+                sbtn.addEventListener('click', () => {
+
+                    //saving notes in local storage 
+
+                    let Textbodye = document.getElementById('editor_ifr').contentWindow.document.body.innerHTML
+                    let titles = Textbodye.search("</h1>");
+                    let title = Textbodye.slice(0, titles + 5);
+                    let titleinbs = title.search(">");
+                    let titleinbe = title.search("</");
+                    let titlemiantext = title.slice(titleinbs + 1, titleinbe);
+                    console.debug(titlemiantext);
+
+                    let objdata = {
+                        Ntitle: titlemiantext,
+                        Nbody: Textbodye
+                    }
+
+                    saveNote(objdata);
+
+                })
+            }
+
+        }
+
+
+        let saveNote = (data) => {
+            let datas = JSON.stringify(data);
+
+            if (document.cookie) {
+                let id = document.cookie;
+                let pid = Number.parseInt(id.slice(3));
+                console.debug(pid);
+                document.cookie = "id=" + (pid + 1);
+
+                localStorage.setItem(pid, datas);
+                Notelist.innerHTML = "";
+                fetchNotes();
+                setSavebtn();
+
+            }
+            else {
+                document.cookie = "id=1";
+                localStorage.setItem(1, datas);
+                Notelist.innerHTML = "";
+                fetchNotes();
+                setSavebtn();
+
+            }
+        }
+
+
+        let saveEditednote = (data, id) => {
+            let datas = JSON.stringify(data);
+            localStorage.setItem(id, datas);
+            Notelist.innerHTML = "";
+            fetchNotes();
+            setSavebtn();
+        }
+
+        let deleteNote = async (id) => {
+            localStorage.removeItem(id);
+            Notelist.innerHTML = "";
+            fetchNotes();
+            setSavebtn()
+        }
+
+        let noteEmpty = () =>{
+            let div = document.createElement("div");
+            let script = document.createElement("script");
+            script.hrc = "https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js";
+            div.appendChild(script)
+            div.insertAdjacentHTML('beforeend', '<lottie-player src="https://assets4.lottiefiles.com/packages/lf20_EMTsq1.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>');
+            Notelist.appendChild(div);
+        }
+
+
+        createBtn.addEventListener('click', () => {
+            addNote();
+        })
+
+        let main1 = () => {
+            fetchNotes();
+        }
+
+
+        main1();
+
+
+
+
+
+
+    </script>
+
+
+
+
+
+</body>
+
+</html>

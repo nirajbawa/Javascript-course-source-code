@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-JavaScript-alert-promp-&-confirm</title>
+
+    <style>
+        *{
+            background-color: #040404;
+            color:white;
+        }
+
+         h1:first-child{
+            color:rgb(239, 240, 244);
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>2-JavaScript-alert-promp-&-confirm</h1>
+
+    <script>
+
+        alert("welcome")
+
+        let a = prompt("enter number : ");
+
+        a = Number.parseInt(a);
+
+        console.log(a);
+        let confirmUser = confirm("yes or no");
+
+        if(confirmUser)
+        {
+            document.write("yes");
+        }
+        else{
+            document.write("no");
+        }
+    </script>
+    
+</body>
+</html>

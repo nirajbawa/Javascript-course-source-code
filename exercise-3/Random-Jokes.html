@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Jokes</title>
+
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+
+        h1:first-child {
+            text-align: center;
+            text-align: center;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="d-flex justify-content-center align-items-center p-5" style="height: 100vh; width:100% ;background:rgb(152, 229, 243); ">
+        <p></p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+
+        //let a = ["Whats the best thing about Switzerland?I don’t know, but the flag is a big plus.", "I invented a new word! Plagiarism!", "Did you hear about the mathematician who’s afraid of negative numbers? He’ll stop at nothing to avoid them.", "Why do we tell actors to “break a leg?” Because every play has a cast. Here are some dark jokes to check out if you have a morbid sense of humor.", "Yesterday I saw a guy spill all his Scrabble letters on the road. I asked him, “What’s the word on the street?” Once my dog ate all the Scrabble tiles. For days he kept leaving little messages around the house. Don’t miss these hilarious egg puns that will absolutely crack you up.", "Hear about the new restaurant called Karma? There’s no menu: You get what you deserve.","A woman in labor suddenly shouted, “Shouldn’t! Wouldn’t! Couldn’t! Didn’t! Can’t!”Don’t worry,” said the doc. Those are just contractions.", "A bear walks into a bar and says, “Give me a whiskey and … cola.“Why the big pause?” asks the bartender. The bear shrugged. “I’m not sure; I was born with them."]
+        
+        //let cpinput = Math.floor(Math.random() * 8) + 1;
+
+        let setJoke = (value) =>{
+            let getcon = document.querySelector(".d-flex").innerHTML = `"${value}"`;
+        }
+
+        let getJoke = async () =>{
+            let data = await fetch("https://api.chucknorris.io/jokes/random");
+            let response = await data.json();
+            return response;
+        }
+
+        let main1 = async() =>{
+            try{
+                let data = await getJoke();
+                setJoke(data.value);
+            }
+            catch{
+                main1();
+            }            
+        }
+
+        main1();
+        
+        
+
+       
+
+    </script>
+
+   
+
+</body>
+
+</html>

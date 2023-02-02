@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2-Parents-&-Siblings-of-an-Element</title>
+
+    <style>
+        *{
+            background-color: #040404;
+        }
+
+        body{
+            color:rgb(239, 240, 244);
+        }
+
+         h1:first-child{
+            color:rgb(239, 240, 244);
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+    <h1>2-Parents-&-Siblings-of-an-Element</h1>
+    <div><p>this</p><p>this is text</p><P>siblings</P></div>
+
+    <script>
+
+        // parent
+
+        let parentnode = document.documentElement.parentNode;
+        let parentnode2 = document.body.parentNode; // return any type of node
+
+        console.log(parentnode);
+
+        let parentele = document.documentElement.parentElement;
+        let parentele2 = document.body.parentElement; // return only valid html nodes like (comment and element) type of node else null
+
+        console.log(parentele);
+
+        //siblings
+
+        //ex :
+        let parent = document.body.childNodes[3];
+        let firstchild = parent.firstChild;
+
+        // it give all child nodes
+        //console.log(firstchild.nextSibling); 
+        //console.log(firstchild.nextSibling);
+ 
+    </script>
+    
+</body>
+</html>
+

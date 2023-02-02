@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+
+  
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+
+        }
+
+        .h{
+            width: 100%;
+            height: 100vh;
+            padding: 10rem;
+        }
+
+        .h div span{
+            font-size: 60px;
+        }
+
+
+          @media only screen and (max-width: 1000px) {
+            .h{
+                padding: 31rem 0rem;
+            }
+          }
+          
+
+          
+        @media only screen and (max-width: 600px) {
+            .h{
+                padding: 0rem;
+            }
+          }
+          
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <div class="container h d-flex align-items-center flex-column justify-content-center" id="container">
+        <div class="d-flex justify-content-evenly align-items-center w-100" style="height: 100vh; background: #e0fffe; border-radius: 1rem;">
+            <span>hours</span>
+            <span>:</span>
+            <span>minutes</span>
+            <span>:</span>
+            <span>second</span>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script>
+
+        let colors = ['#ffd3d3','#ffe1d3','#ffefd3','#fffad3','#f8ffd3','#e2ffd3','#dcffd3','#d3ffd6','#d4ffd3','#d3ffd8','#d3ffe7','#d3fff1','#d3fff7','#d3ffff','#d3f1ff','#d3e7ff','#d3d8ff','#d8d3ff','#e2d3ff','#f0d3ff','#f8d3ff','#ffd3f8','#ffd3eb','#ffd3e1','#ffd3d3','#ffd3d3'];
+
+        let container = document.getElementById("container").firstElementChild;
+        
+        let i = 0;
+
+        setInterval(()=>{
+            let time = new Date();
+            container.firstElementChild.innerText = time.getHours();
+            container.firstElementChild.nextElementSibling.nextElementSibling.innerText = time.getMinutes();
+            container.firstElementChild.nextElementSibling.nextElementSibling.nextElementSibling.nextElementSibling.innerText = time.getSeconds();
+            container.style.backgroundColor = colors[i];
+            i++
+            if(i==colors.length)
+            {
+                i = 0;
+            }
+        }, 1000)
+        
+
+    </script>
+
+   
+
+</body>
+
+</html>

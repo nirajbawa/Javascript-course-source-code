@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1-JavaScript-Console-Object</title>
+
+    <style>
+        *{
+            background-color: #040404;
+        }
+
+         h1:first-child{
+            color:rgb(239, 240, 244);
+            text-align: center;
+        }
+
+    </style>
+
+</head>
+<body>
+
+    <h1>1-JavaScript-Console-Object</h1>
+
+    <script>
+
+        //console object
+
+        console.log("hello");
+
+        console.error("this is error");
+
+        console.assert(20<10)
+
+        console.clear(); //
+
+        let obj = {a:1, b:2};
+
+        console.table(obj);
+
+        console.warn("warning");
+
+        console.info("this an important info");
+
+        console.table(console) //show all console functions
+
+        console.debug("hello"); 
+
+        // time and timeend
+
+        //              lable
+        console.time("\nloop\n");
+
+        for(let i = 0; i<5; i++){
+            console.log(i);
+        }
+
+        //              lable
+        console.timeEnd("\nloop\n");
+
+
+        //              lable
+        console.time("\nloop\n");
+        let j = 0;
+        while(j<5){
+                 console.log(j);
+                 j++;
+        }
+     
+        //              lable
+             console.timeEnd("\nloop\n");
+
+
+
+
+    </script>
+    
+</body>
+</html>
